@@ -835,5 +835,33 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log('enter key pressedin metar input')
             getMETAR()
         }
-    })    
-});
+        const refreshMETAR=async(station)=>{
+            console.log('entered:${station}')
+            fetch('${ADDS_METAR-URL}$(stattion}').then
+            (response=>response.json())
+            .then(json=>{
+                
+                updateWeatherOutput(json,station)
+            }
+            )
+        };
+        document.addEventListener('DOM ContenLoaded',()=>{
+            console.log("document loaded")
+            const rows=elementTab.rows;
+
+            elementTab.addEventListener('click',evt=>{
+                for(let i=1; i<rows.length; i++){
+                    rows[i].onclick=(revt)=>{
+                        const cr=
+                        revt.target.parentNode.cells
+                            const statInformation=cr[0].innerHTML
+                            refreshMETAR(statInformation)
+                            console.log('${statInformation}')
+                    }
+                }
+                })
+            
+            })
+        });
+    }
+)  
